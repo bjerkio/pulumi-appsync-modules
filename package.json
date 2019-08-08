@@ -1,0 +1,19 @@
+{
+  "name": "pulumi-appsync-modules",
+  "version": "1.0.0",
+  "description": "AWS AppSync module for Pulumi – with Modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bjerkio/pulumi-appsync-modules.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bjerkio/pulumi-appsync-modules/issues"
+  },
+  "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme"
+}
