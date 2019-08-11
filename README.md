@@ -21,6 +21,13 @@ or
 $ yarn add pulumi-appsync-modules
 ```
 
+## Motivation
+
+We love [Separation of Concerns](https://deviq.com/separation-of-concerns/) design, and we really like where [GraphQL Modules](https://graphql-modules.com) are going. We work on both Google Cloud Platform and AWS for different projects, and having a few larger projects under our belt with AWS Appsync, and having experience working with GCP, Kubernetes and Node.js-based backends, we tought
+there would be a good match to build something simular to GraphQL Modules – but for AWS Appsync. Our goal was to build something
+that looked simular in design (having the same API was key). We thought this could be an awesome stepping stone for developers
+to be able to move between AWS and GCP easier.
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Bjerkio/pulumi-appsync-modules/issues).
