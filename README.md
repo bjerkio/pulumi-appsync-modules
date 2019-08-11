@@ -5,7 +5,7 @@
 ![Pulumi Appsync](assets/banner.png)
 
 
-This module is inspired by [GraphQL Modules](https://graphql-modules.com) by [@UriGoldshtein](https://twitter.com/UriGoldshtein). It uses *Modern Infrastructure as Code* tool [Pulumi](https://pulumi.com) to push modulized GraphQL APIs to [AWS AppSync](https://aws.amazon.com/appsync/).
+This module is inspired by [GraphQL Modules](https://graphql-modules.com) by [@UriGoldshtein](https://twitter.com/UriGoldshtein). It uses [Pulumi](https://pulumi.com) (*Modern Infrastructure as Code* tool) to deploy modulized GraphQL APIs to [AWS AppSync](https://aws.amazon.com/appsync/).
 
 <small>*Elevator Pitch 👆 Documentation 👇*</small>
 
