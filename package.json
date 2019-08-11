@@ -1,10 +1,10 @@
 {
   "name": "pulumi-appsync-modules",
   "version": "1.0.0",
-  "description": "AWS AppSync module for Pulumi – with Modules",
+  "description": "AWS AppSync module for Pulumi /with Modules",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest src"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,42 @@
   "bugs": {
     "url": "https://github.com/Bjerkio/pulumi-appsync-modules/issues"
   },
-  "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme"
+  "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme",
+  "devDependencies": {
+    "@types/faker": "^4.1.5",
+    "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.1",
+    "faker": "^4.1.0",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2"
+  },
+  "dependencies": {
+    "@pulumi/aws": "^0.18.26",
+    "@pulumi/pulumi": "^0.17.28",
+    "graphql": "^14.4.2",
+    "merge-graphql-schemas": "^1.7.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/services/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/src/$1"
+    },
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__fixtures__/",
+      "<rootDir>/build"
+    ]
+  }
 }
