@@ -1,6 +1,7 @@
 # AWS AppSync + Pulumi + GraphQL Modules
 
 [![npm version](https://badge.fury.io/js/pulumi-appsync-modules.svg)](https://badge.fury.io/js/pulumi-appsync-modules)
+[![Build Status](https://travis-ci.org/Bjerkio/pulumi-appsync-modules.svg?branch=master)](https://travis-ci.org/Bjerkio/pulumi-appsync-modules)
 
 ![Pulumi Appsync](assets/banner.png)
 
