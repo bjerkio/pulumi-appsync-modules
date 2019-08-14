@@ -16,7 +16,10 @@ jobs:
       script: npm run build
     - stage: test
       node_js: lts/*
-      script: npm run test
+      script:
+        - npm install -g codecov
+        - npm run test
+        - codecov
     - stage: release
       node_js: lts/*
       # Advanced: optionally overwrite your default `script` step to skip the tests
@@ -26,6 +29,4 @@ jobs:
         skip_cleanup: true
         script:
           - npm run build
-          - npm install -g codecov
           - npx semantic-release
-          - codecov
