@@ -19,7 +19,12 @@ interface GraphQLModuleArgs {
 }
 
 export class GraphQLModule extends pulumi.ComponentResource {
-  module: GraphQLModuleArgs;
+  name: pulumi.Output<string>;
+
+  typeDefs: pulumi.Output<string>;
+
+  resolvers: pulumi.Output<GraphQLResolver[]>;
+
   /**
    * Create a GraphQLModule resource with the given unique name, arguments, and options.
    *
@@ -28,13 +33,22 @@ export class GraphQLModule extends pulumi.ComponentResource {
    * @param opts A bag of options that control this resource's behavior.
    */
   constructor(name, args: GraphQLModuleArgs, opts?: pulumi.ComponentResourceOptions) {
-    super('GraphQLModule', name, {}, opts);
+    super('pam:graphql-module', name, {}, opts);
 
+    // TODO: Fix Input issue here.
     if (Array.isArray(args.typeDefs)) {
       args.typeDefs = mergeTypes(args.typeDefs, { all: true });
     }
 
-    this.module = args;
+    this.name = pulumi.output(args.name);
+
+    this.typeDefs = pulumi.output(args.typeDefs as pulumi.Input<string>);
+
+    this.resolvers = pulumi.output(args.resolvers).apply(resolvers => {
+      if(!Array.isArray(resolvers)) return [resolvers];
+      return resolvers;
+    });
+
     this.registerOutputs(args);
 
     // Q: How do we _only_ update the resolvers that have been changed?
