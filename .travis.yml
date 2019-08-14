@@ -7,7 +7,8 @@ before_install:
 install:
   - travis_retry npm install
 stages:
-  - compile
+  - name: compile
+    if: branch != master
   - test
   - name: deploy
     if: branch = master
@@ -22,8 +23,6 @@ jobs:
     - stage: release
       node_js: lts/*
       # Advanced: optionally overwrite your default `script` step to skip the tests
-      script:
-        - npm run build
       deploy:
         provider: script
         skip_cleanup: true

@@ -2,10 +2,14 @@
   "name": "pulumi-appsync-modules",
   "version": "0.0.0-development",
   "description": "AWS AppSync module for Pulumi /with Modules",
-  "main": "index.js",
+  "main": "build/index.js",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
     "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test-ws PULUMI_NODEJS_PROJECT=dev jest --coverage src",
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release"
   },
   "repository": {
