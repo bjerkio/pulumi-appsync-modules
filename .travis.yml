@@ -4,13 +4,15 @@ node_js:
   - 8
   - 6
 
+before_install:
+  - npm install
 jobs:
   include:
     - stage: test
       node_js: lts/*
       script: npm run test
     - stage: build
-      node_js: lts/*
+      node_js: 8
       script: npm run build
     # Define the release stage that runs semantic-release
     - stage: release
