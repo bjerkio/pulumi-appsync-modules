@@ -1,6 +1,6 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from '@pulumi/aws';
-import { mergeTypes } from 'merge-graphql-schemas';
+import mergeDefs from './lib/mergeDefs';
 
 export type GraphQLResolverPreArgs = Omit<aws.appsync.ResolverArgs, 'apiId'>;
 export interface GraphQLResolverArgs extends GraphQLResolverPreArgs {
@@ -12,7 +12,7 @@ export interface GraphQLResolverArgs extends GraphQLResolverPreArgs {
 }
 export class GraphQLResolver extends pulumi.ComponentResource {
   resolver: GraphQLResolverArgs;
-  typeDefs?: string | string[];
+  typeDefs?: string;
   /**
    * Create a GraphQLResolver resource with the given unique name, arguments, and options.
    *
@@ -26,7 +26,7 @@ export class GraphQLResolver extends pulumi.ComponentResource {
     this.resolver = resolver;
 
     if (Array.isArray(args.typeDefs)) {
-      args.typeDefs = mergeTypes(args.typeDefs, { all: true });
+      args.typeDefs = mergeDefs(args.typeDefs);
     }
 
     this.typeDefs = args.typeDefs;

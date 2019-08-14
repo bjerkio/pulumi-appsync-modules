@@ -1,6 +1,6 @@
 import * as pulumi from '@pulumi/pulumi';
 import { GraphQLResolver } from './GraphQLResolver';
-import { mergeTypes } from 'merge-graphql-schemas';
+import mergeDefs from './lib/mergeDefs';
 
 export interface GraphQLModuleArgs {
   /**
@@ -11,12 +11,11 @@ export interface GraphQLModuleArgs {
   /**
    * Resolvers object provided by a GraphQLResolver
    */
-  resolvers?: GraphQLResolver| GraphQLResolver[];
+  resolvers?: GraphQLResolver | GraphQLResolver[];
 }
 
 export class GraphQLModule extends pulumi.ComponentResource {
-
-  typeDefs: string;
+  typeDefs?: string;
 
   resolvers: GraphQLResolver[];
 
@@ -30,15 +29,31 @@ export class GraphQLModule extends pulumi.ComponentResource {
   constructor(name: string, args: GraphQLModuleArgs, opts: pulumi.ComponentResourceOptions = {}) {
     super('pam:graphql-module', name, {}, opts);
 
-    // TODO: Fix Input issue here.
-    if (Array.isArray(args.typeDefs)) {
-      args.typeDefs = mergeTypes(args.typeDefs, { all: true });
+    if (args.resolvers && !Array.isArray(args.resolvers)) {
+      this.resolvers = [(args.resolvers as GraphQLResolver)];
+    } else {
+      this.resolvers = args.resolvers as GraphQLResolver[];
     }
 
-    this.typeDefs = args.typeDefs as string;
+    let typeDefs: string[] = [];
 
-    if(!Array.isArray(args.resolvers) && args.resolvers) this.resolvers = [args.resolvers];
-    this.resolvers = args.resolvers as GraphQLResolver[];
+    if (args.typeDefs) {
+      if (Array.isArray(args.typeDefs)) {
+        typeDefs = typeDefs.concat(args.typeDefs);
+      } else typeDefs = [args.typeDefs];
+    }
+
+    if (this.resolvers) {
+      typeDefs = typeDefs.concat(
+        this.resolvers
+          .filter(resolver => resolver.typeDefs)
+          .map(resolver => resolver.typeDefs!)
+      );
+    }
+
+    if (typeDefs.length > 0) {
+      this.typeDefs = mergeDefs(typeDefs);
+    }
 
     this.registerOutputs();
   }

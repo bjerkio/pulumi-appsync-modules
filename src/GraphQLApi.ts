@@ -1,16 +1,13 @@
 import * as aws from '@pulumi/aws';
 import * as pulumi from '@pulumi/pulumi';
-import { mergeTypes } from 'merge-graphql-schemas';
 import { GraphQLModule } from './GraphQLModule';
+import mergeDefs from './lib/mergeDefs';
 
 export interface GraphQLApiArgs extends aws.appsync.GraphQLApiArgs {
   modules: GraphQLModule[];
 }
 
 export class GraphQLApi extends pulumi.ComponentResource {
-  /** @internal */
-  public static readonly __pulumiType = 'pam:graphqlapi';
-
   constructor(name: string, args: GraphQLApiArgs, opts: pulumi.ComponentResourceOptions = {}) {
     super('pam:graphqlapi', name, {}, opts);
     const { modules, ...apiArgs } = args;
@@ -18,16 +15,10 @@ export class GraphQLApi extends pulumi.ComponentResource {
     /**
      * Merge Schemas from all Modules
      */
-    const schema = pulumi
-      .all([...modules.map(mod => mod.typeDefs), apiArgs.schema])
-      .apply(defs => mergeTypes(defs, { all: true }));
-
-    // Lastly, API with Schema
-    // super(name, {
-    //   ...apiArgs,
-    //   schema,
-    // }, opts);
-
+    const schema = mergeDefs(modules.filter(mod => mod.typeDefs).map(mod => mod.typeDefs as string));
+    /**
+     * Construct our API
+     */
     const api = new aws.appsync.GraphQLApi(
       name,
       {

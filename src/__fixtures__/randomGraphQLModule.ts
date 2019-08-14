@@ -4,7 +4,6 @@ import randomGraphQLResolver from './randomGraphQLResolver';
 import { GraphQLResolver } from '../GraphQLResolver';
 import * as fs from 'fs';
 export default (): GraphQLModuleArgs => ({
-  name: faker.random.word(),
   typeDefs: [
     fs.readFileSync(`${__dirname}/client.graphql`, 'utf-8'),
     fs.readFileSync(`${__dirname}/product.graphql`, 'utf-8'),

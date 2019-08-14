@@ -9,5 +9,5 @@ export default (): GraphQLApiArgs => ({
     'AMAZON_COGNITO_USER_POOLS',
     'OPENID_CONNECT',
   ]),
-  modules: [new GraphQLModule(faker.random.word(), randomGraphQLModule())],
+  modules: [new GraphQLModule(faker.random.uuid(), randomGraphQLModule())],
 });
