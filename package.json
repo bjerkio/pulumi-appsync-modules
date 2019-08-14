@@ -1,14 +1,16 @@
 {
   "name": "pulumi-appsync-modules",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "AWS AppSync module for Pulumi /with Modules",
   "main": "index.js",
   "scripts": {
-    "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test-ws PULUMI_NODEJS_PROJECT=dev jest --coverage src"
+    "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test-ws PULUMI_NODEJS_PROJECT=dev jest --coverage src",
+    "build": "tsc",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bjerkio/pulumi-appsync-modules.git"
+    "url": "https://github.com/Bjerkio/pulumi-appsync-modules.git"
   },
   "author": "",
   "license": "MIT",
@@ -23,7 +25,8 @@
     "@types/node": "^12.7.1",
     "faker": "^4.1.0",
     "jest": "^24.8.0",
-    "ts-jest": "^24.0.2"
+    "ts-jest": "^24.0.2",
+    "semantic-release": "^15.13.21"
   },
   "dependencies": {
     "@pulumi/aws": "^0.18.26",

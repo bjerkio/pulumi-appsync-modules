@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "bin",
+    "outDir": "build",
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -15,6 +15,7 @@
   "files": [
     "src/GraphQLApi.ts",
     "src/GraphQLModule.ts",
-    "src/GraphQLResolver.ts"
+    "src/GraphQLResolver.ts",
+    "src/index.ts"
   ]
 }
