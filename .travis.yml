@@ -2,8 +2,9 @@ language: node_js
 node_js:
   - 8
 before_install:
-  - npm install -g codecov
   - npm install
+  - curl -fsSL https://get.pulumi.com/ | sh
+  - export PATH=$PATH:$HOME/.pulumi/bin
 stages:
   - compile
   - test
