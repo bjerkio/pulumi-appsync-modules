@@ -1,6 +1,7 @@
 import { GraphQLModule } from '../GraphQLModule';
 import * as faker from 'faker';
 import { GraphQLResolver } from '../GraphQLResolver';
+import randomGraphQLResolver from '../__fixtures__/randomGraphQLResolver';
 
 describe('GraphQLModule', () => {
   it('should construct', async () => {
@@ -8,15 +9,10 @@ describe('GraphQLModule', () => {
     expect(module).toBeInstanceOf(GraphQLModule);
   });
   it('should export resolvers', async () => {
-    const resolver = new GraphQLResolver(faker.random.uuid(), {
-      field: 'getNull',
-      requestTemplate: '',
-      responseTemplate: '',
-      type: 'Query'
-    })
+    const resolver = new GraphQLResolver(faker.random.uuid(), randomGraphQLResolver());
 
     const module = new GraphQLModule(faker.random.uuid(), {
-      resolvers: [resolver]
+      resolvers: [resolver],
     });
 
     console.log(module.resolvers);
