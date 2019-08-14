@@ -2,24 +2,30 @@ language: node_js
 node_js:
   - 8
 before_install:
+  - npm install -g codecov
   - npm install
+stages:
+  - compile
+  - test
+  - name: deploy
+    if: branch = master
 jobs:
   include:
+    - stage: compile
+      node_js: 8
+      script: npm run build
     - stage: test
       node_js: lts/*
       script: npm run test
-    - stage: build
-      node_js: 8
-      script: npm run build
-    # Define the release stage that runs semantic-release
     - stage: release
       node_js: lts/*
       # Advanced: optionally overwrite your default `script` step to skip the tests
-      # script: skip
+      script: skip
       deploy:
         provider: script
         skip_cleanup: true
         script:
+          - npm run build
+          - npm install -g codecov
           - npx semantic-release
-after_success:
-  - codecov
+          - codecov
