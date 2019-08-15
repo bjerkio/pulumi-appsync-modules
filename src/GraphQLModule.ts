@@ -1,6 +1,7 @@
 import * as pulumi from '@pulumi/pulumi';
 import { GraphQLResolver } from './GraphQLResolver';
 import mergeDefs from './lib/mergeDefs';
+import { GraphQLDataSource } from './GraphQLDataSource';
 
 export interface GraphQLModuleArgs {
   /**
@@ -12,12 +13,18 @@ export interface GraphQLModuleArgs {
    * Resolvers object provided by a GraphQLResolver
    */
   resolvers?: GraphQLResolver | GraphQLResolver[];
+  /**
+   * Datasources (GraphQLModules)
+   */
+  datasources?: GraphQLDataSource | GraphQLDataSource[];
 }
 
 export class GraphQLModule extends pulumi.ComponentResource {
   typeDefs?: string;
 
   resolvers: GraphQLResolver[];
+
+  datasources: GraphQLDataSource[];
 
   /**
    * Create a GraphQLModule resource with the given unique name, arguments, and options.
@@ -29,11 +36,21 @@ export class GraphQLModule extends pulumi.ComponentResource {
   constructor(name: string, args: GraphQLModuleArgs, opts: pulumi.ComponentResourceOptions = {}) {
     super('pam:graphql-module', name, {}, opts);
 
-    if (args.resolvers && !Array.isArray(args.resolvers)) {
-      this.resolvers = [(args.resolvers as GraphQLResolver)];
-    } else {
-      this.resolvers = args.resolvers as GraphQLResolver[];
-    }
+    if (args.resolvers) {
+      if (!Array.isArray(args.resolvers)) {
+        this.resolvers = [(args.resolvers as GraphQLResolver)];
+      } else {
+        this.resolvers = args.resolvers as GraphQLResolver[];
+      }
+    } else this.resolvers = [];
+
+    if (args.datasources) {
+      if (args.datasources && !Array.isArray(args.datasources)) {
+        this.datasources = [args.datasources as GraphQLDataSource];
+      } else {
+        this.datasources = args.datasources as GraphQLDataSource[];
+      }
+    } else this.datasources = [];
 
     let typeDefs: string[] = [];
 
@@ -43,7 +60,7 @@ export class GraphQLModule extends pulumi.ComponentResource {
       } else typeDefs = [args.typeDefs];
     }
 
-    if (this.resolvers) {
+    if (this.resolvers.length > 0) {
       typeDefs = typeDefs.concat(
         this.resolvers
           .filter(resolver => resolver.typeDefs)
