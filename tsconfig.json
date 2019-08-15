@@ -16,6 +16,7 @@
     "src/GraphQLApi.ts",
     "src/GraphQLModule.ts",
     "src/GraphQLResolver.ts",
+    "src/GraphQLDataSource.ts",
     "src/index.ts"
   ]
 }

@@ -2,6 +2,8 @@ import * as faker from 'faker';
 import { GraphQLApiArgs } from '../GraphQLApi';
 import { GraphQLModule } from '../GraphQLModule';
 import randomGraphQLModule from './randomGraphQLModule';
+import { GraphQLDataSource } from '../GraphQLDataSource';
+import randomGraphQLDataSource from './randomGraphQLDataSource';
 export default (): GraphQLApiArgs => ({
   authenticationType: faker.random.arrayElement([
     'API_KEY',
@@ -10,4 +12,5 @@ export default (): GraphQLApiArgs => ({
     'OPENID_CONNECT',
   ]),
   modules: [new GraphQLModule(faker.random.uuid(), randomGraphQLModule())],
+  datasources: [new GraphQLDataSource(faker.random.uuid(), randomGraphQLDataSource())]
 });

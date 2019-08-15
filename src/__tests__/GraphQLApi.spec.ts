@@ -5,14 +5,15 @@ import randomGraphQLApi from '../__fixtures__/randomGraphQLApi';
 
 describe('GraphQLApi', () => {
   it('should construct', () => {
-    const api = new GraphQLApi(faker.random.uuid(), randomGraphQLApi());
+    const api = new GraphQLApi(faker.random.uuid(), {...randomGraphQLApi(), datasources: undefined});
     expect(api).toBeInstanceOf(GraphQLApi);
   });
-  it('should output api and resolvers properties', () => {
+  it('should output api, resolvers and datasources properties', () => {
     const fakeItem = randomGraphQLApi();
     const api = new GraphQLApi(faker.random.uuid(), fakeItem);
     expect(api).toHaveProperty('api');
     expect(api).toHaveProperty('resolvers');
+    expect(api).toHaveProperty('datasources');
     expect(api.resolvers).toBeTruthy();
   })
 });
