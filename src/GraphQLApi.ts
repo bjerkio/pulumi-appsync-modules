@@ -8,6 +8,12 @@ export interface GraphQLApiArgs extends aws.appsync.GraphQLApiArgs {
 }
 
 export class GraphQLApi extends pulumi.ComponentResource {
+  api: aws.appsync.GraphQLApi;
+
+  resolvers: aws.appsync.Resolver[];
+
+  schema: string;
+
   constructor(name: string, args: GraphQLApiArgs, opts: pulumi.ComponentResourceOptions = {}) {
     super('pam:graphqlapi', name, {}, opts);
     const { modules, ...apiArgs } = args;
@@ -15,11 +21,15 @@ export class GraphQLApi extends pulumi.ComponentResource {
     /**
      * Merge Schemas from all Modules
      */
-    const schema = mergeDefs(modules.filter(mod => mod.typeDefs).map(mod => mod.typeDefs as string));
+    const schema = mergeDefs(
+      modules.filter(mod => mod.typeDefs).map(mod => mod.typeDefs as string)
+    );
+    this.schema = schema;
+
     /**
      * Construct our API
      */
-    const api = new aws.appsync.GraphQLApi(
+    this.api = new aws.appsync.GraphQLApi(
       name,
       {
         ...apiArgs,
@@ -30,28 +40,22 @@ export class GraphQLApi extends pulumi.ComponentResource {
         parent: this,
       }
     );
-
-    const resolvers = modules.map(mod =>
-      mod.resolvers.map(
+    
+    this.resolvers = modules.map(mod => mod.resolvers.map(
         resolver =>
           new aws.appsync.Resolver(
             `${name}-${resolver}`,
             {
               ...resolver.resolver,
-              apiId: api.id,
+              apiId: this.api.id,
             },
             {
               ...opts,
               parent: this,
             }
           )
-      )
-    );
+      )).reduce((acc, val) => acc.concat(val), []);
 
-    this.registerOutputs({
-      api,
-      resolvers,
-      schema,
-    });
+    this.registerOutputs();
   }
 }
