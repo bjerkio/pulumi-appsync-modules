@@ -11,6 +11,7 @@ export interface GraphQLResolverArgs extends GraphQLResolverPreArgs {
   typeDefs?: string | string[];
 }
 export class GraphQLResolver extends pulumi.ComponentResource {
+  name: string;
   resolver: GraphQLResolverArgs;
   typeDefs?: string;
   /**
@@ -24,6 +25,8 @@ export class GraphQLResolver extends pulumi.ComponentResource {
     super('pam:graphql-resolver', name, {}, opts);
     const { typeDefs, ...resolver } = args;
     this.resolver = resolver;
+
+    this.name = name;
 
     if (Array.isArray(args.typeDefs)) {
       args.typeDefs = mergeDefs(args.typeDefs);
