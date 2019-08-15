@@ -44,7 +44,7 @@ export class GraphQLApi extends pulumi.ComponentResource {
     this.resolvers = modules.map(mod => mod.resolvers.map(
         resolver =>
           new aws.appsync.Resolver(
-            `${name}-${resolver}`,
+            `${name}-${resolver.name}`,
             {
               ...resolver.resolver,
               apiId: this.api.id,
