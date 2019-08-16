@@ -8,6 +8,19 @@ describe('GraphQLApi', () => {
     const api = new GraphQLApi(faker.random.uuid(), {...randomGraphQLApi(), datasources: undefined});
     expect(api).toBeInstanceOf(GraphQLApi);
   });
+
+  it('should construct with schema', () => {
+    const api = new GraphQLApi(faker.random.uuid(), {
+      ...randomGraphQLApi(),
+      datasources: undefined,
+      schema: `
+      type Test {
+        field: String
+      }
+      `
+    });
+    expect(api).toBeInstanceOf(GraphQLApi);
+  });
   it('should output api, resolvers and datasources properties', () => {
     const fakeItem = randomGraphQLApi();
     const api = new GraphQLApi(faker.random.uuid(), fakeItem);

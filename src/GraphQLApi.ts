@@ -25,9 +25,11 @@ export class GraphQLApi extends pulumi.ComponentResource {
     /**
      * Merge Schemas from all Modules
      */
-    const schema = mergeDefs(
-      modules.filter(mod => mod.typeDefs).map(mod => mod.typeDefs as string)
-    );
+    const schemas = modules.filter(mod => mod.typeDefs).map(mod => mod.typeDefs as string);
+    if (apiArgs.schema) {
+      schemas.push(apiArgs.schema as string);
+    }
+    const schema = mergeDefs(schemas);
     this.schema = schema;
 
     /**
