@@ -8,7 +8,19 @@ describe('GraphQLApi', () => {
     const api = new GraphQLApi(faker.random.uuid(), {...randomGraphQLApi(), datasources: undefined});
     expect(api).toBeInstanceOf(GraphQLApi);
   });
-
+  it('should construct with one dependsOn', () => {
+    const ec2 = new aws.ec2.Instance('test', {
+      ami: '',
+      instanceType: 'm5.4xlarge',
+    });
+    const api = new GraphQLApi(faker.random.uuid(), {
+      ...randomGraphQLApi(),
+      datasources: undefined,
+    }, {
+      dependsOn: ec2
+    });
+    expect(api).toBeInstanceOf(GraphQLApi);
+  });
   it('should construct with schema', () => {
     const api = new GraphQLApi(faker.random.uuid(), {
       ...randomGraphQLApi(),
