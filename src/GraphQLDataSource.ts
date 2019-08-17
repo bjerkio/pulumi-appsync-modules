@@ -15,12 +15,9 @@ export class GraphQLDataSource extends pulumi.ComponentResource {
    */
   constructor(name: string, args: GraphQLDataSourceArgs, opts: pulumi.ComponentResourceOptions = {}) {
     super('pam:graphql-datasource', name, {}, opts);
-    this.datasource = {
-      ...args,
-      name,
-    };
+    this.datasource = args;
 
-    this.name = name;
+    this.name = args.name as string;
 
     this.registerOutputs();
   }
