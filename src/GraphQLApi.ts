@@ -48,28 +48,6 @@ export class GraphQLApi extends pulumi.ComponentResource {
     );
 
     /**
-     * Resolvers
-     */
-    this.resolvers = modules
-      .map(mod =>
-        mod.resolvers.map(
-          resolver =>
-            new aws.appsync.Resolver(
-              `${name}-${resolver.name}`,
-              {
-                ...resolver.resolver,
-                apiId: this.api.id,
-              },
-              {
-                ...opts,
-                parent: this,
-              }
-            )
-        )
-      )
-      .reduce((acc, val) => acc.concat(val), []);
-
-    /**
      * Datasources
      */
     this.datasources = [
@@ -89,6 +67,35 @@ export class GraphQLApi extends pulumi.ComponentResource {
           }
         )
     );
+
+    /**
+     * Resolvers
+     */
+    const resolverDependsOn = (opts.dependsOn
+      ? Array.isArray(opts.dependsOn)
+        ? [...opts.dependsOn, ...this.datasources]
+        : [opts.dependsOn, ...this.datasources]
+      : this.datasources) as pulumi.Input<pulumi.Input<pulumi.Resource>[]> | pulumi.Input<pulumi.Resource>;
+
+    this.resolvers = modules
+      .map(mod =>
+        mod.resolvers.map(
+          resolver =>
+            new aws.appsync.Resolver(
+              `${name}-${resolver.name}`,
+              {
+                ...resolver.resolver,
+                apiId: this.api.id,
+              },
+              {
+                ...opts,
+                dependsOn: resolverDependsOn,
+                parent: this,
+              }
+            )
+        )
+      )
+      .reduce((acc, val) => acc.concat(val), []);
 
     this.registerOutputs();
   }
