@@ -21,6 +21,23 @@ describe('GraphQLApi', () => {
     });
     expect(api).toBeInstanceOf(GraphQLApi);
   });
+  it('should construct with two dependsOn', () => {
+    const ec2One = new aws.ec2.Instance('test', {
+      ami: '',
+      instanceType: 'm5.4xlarge',
+    });
+    const ec2Two = new aws.ec2.Instance('test', {
+      ami: '',
+      instanceType: 'm5.4xlarge',
+    });
+    const api = new GraphQLApi(faker.random.uuid(), {
+      ...randomGraphQLApi(),
+      datasources: undefined,
+    }, {
+      dependsOn: [ec2One, ec2Two]
+    });
+    expect(api).toBeInstanceOf(GraphQLApi);
+  });
   it('should construct with schema', () => {
     const api = new GraphQLApi(faker.random.uuid(), {
       ...randomGraphQLApi(),
