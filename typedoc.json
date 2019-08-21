@@ -1,0 +1,9 @@
+{
+  "out": "docs",
+  "mode": "modules",
+  "theme": "markdown",
+  "readme": "none",
+  "name": "Pulumi AppSync Modules",
+  "hideIndexes": true,
+  "exclude": "**/*+(mergeDefs|e2e|spec|index).ts"
+}
