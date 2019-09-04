@@ -33,7 +33,7 @@
     "semantic-release": "^15.13.21"
   },
   "dependencies": {
-    "@pulumi/aws": "^0.18.26",
+    "@pulumi/aws": "^1.0.0",
     "@pulumi/pulumi": "^0.17.28",
     "graphql": "^14.4.2",
     "graphql-toolkit": "^0.5.8"
