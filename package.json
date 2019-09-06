@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@pulumi/aws": "^1.0.0",
-    "@pulumi/pulumi": "^0.17.28",
+    "@pulumi/pulumi": "^1.0.0",
     "graphql": "^14.4.2",
     "graphql-toolkit": "^0.5.8"
   },
