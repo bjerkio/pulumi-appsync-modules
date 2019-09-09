@@ -32,9 +32,11 @@
     "ts-jest": "^24.0.2",
     "semantic-release": "^15.13.21"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@pulumi/aws": "^1.0.0",
-    "@pulumi/pulumi": "^1.0.0",
+    "@pulumi/pulumi": "^1.0.0"
+  },
+  "dependencies": {
     "graphql": "^14.4.2",
     "graphql-toolkit": "^0.5.8"
   },
