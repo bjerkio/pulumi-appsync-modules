@@ -35,7 +35,7 @@
   "dependencies": {
     "graphql": "^14.4.2",
     "graphql-toolkit": "^0.5.8",
-    "typescript": "^3.6.2",
+    "typescript": "^3.4.5",
     "@pulumi/aws": "^1.0.0",
     "@pulumi/pulumi": "^1.0.0"
   },
