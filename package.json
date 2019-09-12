@@ -33,10 +33,11 @@
     "semantic-release": "^15.13.21"
   },
   "dependencies": {
-    "@pulumi/aws": "^1.0.0",
-    "@pulumi/pulumi": "^1.0.0",
     "graphql": "^14.4.2",
-    "graphql-toolkit": "^0.5.8"
+    "graphql-toolkit": "^0.5.8",
+    "typescript": "^3.4.5",
+    "@pulumi/aws": "^1.0.0",
+    "@pulumi/pulumi": "^1.0.0"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
