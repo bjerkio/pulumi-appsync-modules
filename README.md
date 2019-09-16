@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/pulumi-appsync-modules.svg)](https://badge.fury.io/js/pulumi-appsync-modules)
 [![Build Status](https://travis-ci.org/Bjerkio/pulumi-appsync-modules.svg?branch=master)](https://travis-ci.org/Bjerkio/pulumi-appsync-modules)
-[![codecov](https://codecov.io/gh/Bjerkio/pulumi-appsync-modules/branch/master/graph/badge.svg)](https://codecov.io/gh/Bjerkio/pulumi-appsync-modules) [![Greenkeeper badge](https://badges.greenkeeper.io/Bjerkio/pulumi-appsync-modules.svg)](https://greenkeeper.io/)
+[![codecov](https://codecov.io/gh/Bjerkio/pulumi-appsync-modules/branch/master/graph/badge.svg)](https://codecov.io/gh/Bjerkio/pulumi-appsync-modules)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Bjerkio/pulumi-appsync-modules.svg)](https://greenkeeper.io/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/93d4f436b5d9fae958f8/maintainability)](https://codeclimate.com/github/bjerkio/pulumi-appsync-modules/maintainability)
 
 ![Pulumi Appsync](assets/banner.png)
 
