@@ -1,8 +1,13 @@
+/**
+ * @module GraphQLResolver
+ */
+
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from '@pulumi/aws';
 import mergeDefs from './lib/mergeDefs';
 
 export type GraphQLResolverPreArgs = Omit<aws.appsync.ResolverArgs, 'apiId'>;
+
 export interface GraphQLResolverArgs extends GraphQLResolverPreArgs {
   /**
    * A definition of GraphQL type definitions as string.

@@ -1,3 +1,7 @@
+/**
+ * @module GraphQLModule
+ */
+
 import * as pulumi from '@pulumi/pulumi';
 import { GraphQLResolver } from './GraphQLResolver';
 import mergeDefs from './lib/mergeDefs';

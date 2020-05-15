@@ -29,6 +29,12 @@ $ yarn add pulumi-appsync-modules
 
 We love [Separation of Concerns](https://deviq.com/separation-of-concerns/) design, and we like where [GraphQL Modules](https://graphql-modules.com) are going. We use AWS for different projects, so we have a few larger projects under our belt with AWS Appsync. We tought there would be an excellent match to build something similar to GraphQL Modules – but for AWS Appsync. Our goal was to build something that looked similar in design (having the same API was vital). Using Pulumi made the most sense because we could keep our library lightweight.
 
+# Documentation
+Apart from this README, you can find details and examples of using the SDK in the following places:  
+
+- [SDK Documentation](docs/README.md)
+- [Pulumi AppSync Documentation](https://www.pulumi.com/docs/reference/pkg/aws/appsync/)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Bjerkio/pulumi-appsync-modules/issues).

@@ -1,9 +1,15 @@
+/**
+ * @ignore
+ * @external
+ */
+
 import * as faker from 'faker';
 import { GraphQLApiArgs } from '../GraphQLApi';
 import { GraphQLModule } from '../GraphQLModule';
 import randomGraphQLModule from './randomGraphQLModule';
 import { GraphQLDataSource } from '../GraphQLDataSource';
 import randomGraphQLDataSource from './randomGraphQLDataSource';
+
 export default (): GraphQLApiArgs => ({
   authenticationType: faker.random.arrayElement([
     'API_KEY',
