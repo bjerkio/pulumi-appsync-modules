@@ -53,23 +53,26 @@ export class GraphQLApi extends pulumi.ComponentResource {
     /**
      * Datasources
      */
+
+    const createDatasource = (datasource: GraphQLDataSource, module?: GraphQLModule) =>
+      new aws.appsync.DataSource(
+        `${name}-${datasource.name}`,
+        {
+          ...datasource.datasource,
+          apiId: this.api.id,
+        },
+        {
+          ...opts,
+          parent: module || this.api,
+        }
+      );
+
     this.datasources = [
-      ...(datasources || []),
-      ...modules.map(mod => mod.datasources).reduce((acc, val) => acc.concat(val), []),
-    ].map(
-      datasource =>
-        new aws.appsync.DataSource(
-          `${name}-${datasource.name}`,
-          {
-            ...datasource.datasource,
-            apiId: this.api.id,
-          },
-          {
-            ...opts,
-            parent: this,
-          }
-        )
-    );
+      ...(datasources || []).map(datasource => createDatasource(datasource)),
+      ...modules
+        .map(mod => mod.datasources.map(datasource => createDatasource(datasource, mod)))
+        .reduce((acc, val) => acc.concat(val), []),
+    ];
 
     /**
      * Resolvers
@@ -78,7 +81,9 @@ export class GraphQLApi extends pulumi.ComponentResource {
       ? Array.isArray(opts.dependsOn)
         ? [...opts.dependsOn, ...this.datasources]
         : [opts.dependsOn, ...this.datasources]
-      : this.datasources) as pulumi.Input<pulumi.Input<pulumi.Resource>[]> | pulumi.Input<pulumi.Resource>;
+      : this.datasources) as
+      | pulumi.Input<pulumi.Input<pulumi.Resource>[]>
+      | pulumi.Input<pulumi.Resource>;
 
     this.resolvers = modules
       .map(mod =>
@@ -93,7 +98,7 @@ export class GraphQLApi extends pulumi.ComponentResource {
               {
                 ...opts,
                 dependsOn: resolverDependsOn,
-                parent: this,
+                parent: mod,
               }
             )
         )
