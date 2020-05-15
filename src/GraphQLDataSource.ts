@@ -1,8 +1,10 @@
+/**
+ * @module GraphQLDataSource
+ */
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from '@pulumi/aws';
 
 /**
- * @external
  * Provides an AppSync API Key.
  *
  * ## Example Usage
@@ -24,6 +26,7 @@ import * as aws from '@pulumi/aws';
  */
 
 export type GraphQLDataSourceArgs = Omit<aws.appsync.DataSourceArgs, 'apiId'>;
+
 export class GraphQLDataSource extends pulumi.ComponentResource {
   name: string;
   datasource: GraphQLDataSourceArgs;

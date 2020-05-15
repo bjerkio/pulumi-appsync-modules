@@ -1,5 +1,10 @@
 import * as faker from 'faker';
+/**
+ * @ignore
+ */
+
 import { GraphQLResolverArgs } from '../GraphQLResolver';
+
 export default (): GraphQLResolverArgs => ({
   field: `get${faker.random.word()}`,
   requestTemplate: `{

@@ -10,7 +10,7 @@
     "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test-ws PULUMI_NODEJS_PROJECT=dev jest --coverage src",
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "generate:docs": "typedoc src/",
+    "generate:docs": "typedoc --mode file --readme none --plugin typedoc-plugin-markdown --hideSources --out docs src",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -25,22 +25,20 @@
   "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme",
   "devDependencies": {
     "@types/faker": "^4.1.5",
-    "@types/graphql": "14.2.3",
     "@types/jest": "^24.0.17",
     "@types/node": "^12.7.1",
     "faker": "^4.1.0",
     "jest": "^24.8.0",
-    "semantic-release": "^15.13.21",
     "ts-jest": "^24.0.2",
-    "typedoc": "^0.15.0",
-    "typedoc-plugin-internal-external": "^2.0.2",
-    "typedoc-plugin-markdown": "^2.1.3"
+    "typedoc": "^0.17.3",
+    "typedoc-plugin-markdown": "^2.2.16",
+    "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@pulumi/aws": "^1.0.0",
-    "@pulumi/pulumi": "^1.0.0",
-    "graphql": "^14.4.2",
-    "graphql-toolkit": "^0.5.8"
+    "@graphql-toolkit/schema-merging": "^0.10.6",
+    "@pulumi/aws": "^2.4.0",
+    "@pulumi/pulumi": "^2.2.1",
+    "graphql": "^15.0.0"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
