@@ -28,7 +28,7 @@
     "@types/jest": "^25.2.2",
     "@types/node": "^12.7.1",
     "faker": "^4.1.0",
-    "jest": "^24.8.0",
+    "jest": "^26.0.1",
     "ts-jest": "^24.0.2",
     "typedoc": "^0.17.3",
     "typedoc-plugin-markdown": "^2.2.16",
