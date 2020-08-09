@@ -30,7 +30,7 @@
     "faker": "^4.1.0",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.1",
-    "typedoc": "^0.17.3",
+    "typedoc": "^0.18.0",
     "typedoc-plugin-markdown": "^2.2.16",
     "typescript": "^3.9.2"
   },
