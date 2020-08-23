@@ -27,7 +27,7 @@
     "@types/faker": "^4.1.5",
     "@types/jest": "^26.0.3",
     "@types/node": "^12.7.1",
-    "faker": "^4.1.0",
+    "faker": "^5.0.0",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.1",
     "typedoc": "^0.18.0",
