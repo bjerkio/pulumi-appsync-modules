@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme",
   "devDependencies": {
-    "@types/faker": "^4.1.5",
+    "@types/faker": "^5.1.0",
     "@types/jest": "^26.0.3",
     "@types/node": "^12.7.1",
     "faker": "^4.1.0",
