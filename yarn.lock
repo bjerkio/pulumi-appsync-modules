@@ -574,9 +574,9 @@
     resolve "^1.7.1"
 
 "@pulumi/pulumi@^2.0.0", "@pulumi/pulumi@^2.2.1":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.9.2.tgz#824287a69712832297c4d4566264cb7d8e9e4156"
-  integrity sha512-tN1hFrxMiZ/Jtcrb3j899pXzdHPS7j1/3XRdJ0z9HDDvbkNvYbhYRS0CASqywEF93EiKqUWyomzwG33s4hinsQ==
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.10.0.tgz#7fe0173e54d677950e79763af1e66b18e93cd597"
+  integrity sha512-XjI1OQhFI/i4zeIacBIfEcCh1dB+xlfJpPglhIk8E6U8VQdqtG+SD5jouCGTNpM+q0e0qqo5TVEIS7MSRrJ8+Q==
   dependencies:
     "@grpc/grpc-js" "^0.6.15"
     "@pulumi/query" "^0.3.0"
