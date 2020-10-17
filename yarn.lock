@@ -573,9 +573,9 @@
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
 "@pulumi/aws@^3.6.1":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-3.7.0.tgz#8ff53f2806095bf12c434e752e9f4006381fb940"
-  integrity sha512-fAxKujh3BCw+QN7JklEaHfM7zS6FKTInpKlE20QSGhlD2a7HHXYlbsga2L/fnHbEejyOFhYykCWzVLlEMi9wSA==
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-3.8.0.tgz#540cd1c438e2313e8b0dc2b13694d1bc29ed3d75"
+  integrity sha512-SaR9Gdcrornvi4X0fLYSGIUXnZCpO/VD8yPo5yHRAQ7LctQLJEDaRu8P5X8behsWvU62VZLH/sQa+rgVHooI4w==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     aws-sdk "^2.0.0"
