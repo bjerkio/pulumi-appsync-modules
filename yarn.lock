@@ -574,9 +574,9 @@
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
 "@pulumi/aws@^3.6.1":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-3.8.0.tgz#540cd1c438e2313e8b0dc2b13694d1bc29ed3d75"
-  integrity sha512-SaR9Gdcrornvi4X0fLYSGIUXnZCpO/VD8yPo5yHRAQ7LctQLJEDaRu8P5X8behsWvU62VZLH/sQa+rgVHooI4w==
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-3.9.0.tgz#ce2e21338ea508aab7e0bdd120aa858e56fc1eb4"
+  integrity sha512-6uZkrdJsUurydV4vwnsX8yZjjr8IcAjuDKFRjNofFflatACpsJY6VThLJ+VwvWEAjuR+qgId55L8aliu+Sx24A==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     aws-sdk "^2.0.0"
@@ -3623,14 +3623,7 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.1.6, resolve@^1.10.0, resolve@^1.3.2, resolve@^1.7.1:
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.17.0.tgz#b25941b54968231cc2d1bb76a79cb7f2c0bf8444"
-  integrity sha512-ic+7JYiV8Vi2yzQGFWOkiZD5Z9z7O2Zhm9XMaTxdJExKasieFCr+yXZ/WmXsckHiKl12ar0y6XiXDx3m4RHn1w==
-  dependencies:
-    path-parse "^1.0.6"
-
-resolve@^1.18.1:
+resolve@^1.1.6, resolve@^1.10.0, resolve@^1.18.1, resolve@^1.3.2, resolve@^1.7.1:
   version "1.18.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.18.1.tgz#018fcb2c5b207d2a6424aee361c5a266da8f4130"
   integrity sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
