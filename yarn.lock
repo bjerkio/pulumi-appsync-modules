@@ -565,22 +565,44 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/aws@^3.6.1":
-  version "3.38.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-3.38.1.tgz#d7972f82bebc2205622d8283b0983e96a36f7c94"
-  integrity sha512-XnCa7AHq+/Py/eHItlus+YTjelKEn77u9ffO+owjrucb8RRhkvDzAa3prjQbhrRDxBvwZ7GcQqp/5SGTamkboQ==
+"@pulumi/aws@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-4.0.0.tgz#f81f29c1e8f43231f5dbbede32b2e8b040d4e889"
+  integrity sha512-zW4EiJhR09Mu6nwF4GUjRwQuA0l1RU2KyPM/JEOOCRh1FCpUvMu+mP+Iuv2R8CQgI7G2gkkEuMRmV08e5u9DEQ==
   dependencies:
-    "@pulumi/pulumi" "^2.17.0"
+    "@pulumi/pulumi" "^3.0.0"
     aws-sdk "^2.0.0"
     builtin-modules "3.0.0"
     mime "^2.0.0"
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
-"@pulumi/pulumi@^2.17.0", "@pulumi/pulumi@^2.2.1":
+"@pulumi/pulumi@^2.2.1":
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.25.0.tgz#73abac11c44eea80648d1810e5839ba2e7c3010b"
   integrity sha512-1wqU3tD0nT8dJ83oVp1Ee5m49iJxGmC2fMeQHfMHRUi+KnyoIA8N1JSec6mmXk3ZzuqzpOiUgIJiKE0doRNtLQ==
+  dependencies:
+    "@grpc/grpc-js" "^1.2.7"
+    "@logdna/tail-file" "^2.0.6"
+    "@pulumi/query" "^0.3.0"
+    google-protobuf "^3.5.0"
+    js-yaml "^3.14.0"
+    minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
+    protobufjs "^6.8.6"
+    read-package-tree "^5.3.1"
+    require-from-string "^2.0.1"
+    semver "^6.1.0"
+    source-map-support "^0.4.16"
+    split2 "^3.2.2"
+    ts-node "^7.0.1"
+    typescript "~3.7.3"
+    upath "^1.1.0"
+
+"@pulumi/pulumi@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.0.0.tgz#b1a1a845718b21d3b4975740627f5b25f2c04fcb"
+  integrity sha512-s9pwbdFrMU8vt4F5aIf8cpnDmHSM5Pn5V2Y7T7m0R14pfxTjCqt5ZAuEdKys0SgL+DxDp5L4Kz/53SXC6MFEEw==
   dependencies:
     "@grpc/grpc-js" "^1.2.7"
     "@logdna/tail-file" "^2.0.6"
