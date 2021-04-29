@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - ">= 13.a, < 14"
+  - dependency-name: "@types/node"
+    versions:
+    - ">= 14.a, < 15"
+  - dependency-name: "@types/node"
+    versions:
+    - 15.0.0
+  - dependency-name: "@pulumi/aws"
+    versions:
+    - 3.26.0
+    - 3.29.0
+    - 3.34.0
+    - 4.0.0
+  - dependency-name: "@pulumi/pulumi"
+    versions:
+    - 2.23.0
+    - 2.24.0
+    - 3.0.0
+  - dependency-name: typedoc
+    versions:
+    - 0.20.20
+    - 0.20.22
+    - 0.20.24
+    - 0.20.25
+    - 0.20.26
+    - 0.20.27
+    - 0.20.28
+    - 0.20.29
+    - 0.20.30
+    - 0.20.31
+    - 0.20.32
+    - 0.20.33
+    - 0.20.34
+    - 0.20.35
