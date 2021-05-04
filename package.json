@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@graphql-toolkit/schema-merging": "^0.10.6",
-    "@pulumi/aws": "^3.6.1",
+    "@pulumi/aws": "^4.2.0",
     "@pulumi/pulumi": "^2.2.1",
     "graphql": "^15.0.0"
   },
