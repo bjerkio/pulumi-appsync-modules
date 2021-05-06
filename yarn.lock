@@ -577,10 +577,32 @@
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
-"@pulumi/pulumi@^2.17.0", "@pulumi/pulumi@^2.2.1":
+"@pulumi/pulumi@^2.17.0":
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.25.0.tgz#73abac11c44eea80648d1810e5839ba2e7c3010b"
   integrity sha512-1wqU3tD0nT8dJ83oVp1Ee5m49iJxGmC2fMeQHfMHRUi+KnyoIA8N1JSec6mmXk3ZzuqzpOiUgIJiKE0doRNtLQ==
+  dependencies:
+    "@grpc/grpc-js" "^1.2.7"
+    "@logdna/tail-file" "^2.0.6"
+    "@pulumi/query" "^0.3.0"
+    google-protobuf "^3.5.0"
+    js-yaml "^3.14.0"
+    minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
+    protobufjs "^6.8.6"
+    read-package-tree "^5.3.1"
+    require-from-string "^2.0.1"
+    semver "^6.1.0"
+    source-map-support "^0.4.16"
+    split2 "^3.2.2"
+    ts-node "^7.0.1"
+    typescript "~3.7.3"
+    upath "^1.1.0"
+
+"@pulumi/pulumi@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.2.1.tgz#c7c979aa29d595ea691426b78d44bdc6b9e8d793"
+  integrity sha512-fFkFEUHSM3gCV+TdwPyKuJOS5EsCzjYVfE6Qyz4UR+qRmExxNkOBX73Uc+BkD79vpqs4B9mPNlpPC9UHGBDvLg==
   dependencies:
     "@grpc/grpc-js" "^1.2.7"
     "@logdna/tail-file" "^2.0.6"
