@@ -1,6 +1,6 @@
 {
   "name": "pulumi-appsync-modules",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "AWS AppSync module for Pulumi /with Modules",
   "main": "build/index.js",
   "files": [
