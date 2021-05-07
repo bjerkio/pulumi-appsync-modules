@@ -1,4 +1,4 @@
-import { mergeTypeDefs } from '@graphql-toolkit/schema-merging';
+import { mergeTypeDefs } from '@graphql-tools/merge';
 import { print } from 'graphql/language/printer';
 /**
  * @hidden
