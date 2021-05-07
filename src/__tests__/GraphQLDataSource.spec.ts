@@ -5,7 +5,7 @@ import randomGraphQLDataSource from '../__fixtures__/randomGraphQLDataSource';
 
 describe('GraphQLDataSource', () => {
   it('should construct', () => {
-    const api = new GraphQLDataSource(faker.random.uuid(), randomGraphQLDataSource());
+    const api = new GraphQLDataSource(faker.datatype.uuid(), randomGraphQLDataSource());
     expect(api).toBeInstanceOf(GraphQLDataSource);
   });
 });

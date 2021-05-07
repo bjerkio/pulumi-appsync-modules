@@ -6,11 +6,11 @@ process.env.PULUMI_TEST_MODE = 'true';
 
 describe('GraphQLResolver', () => {
   it('should construct', async () => {
-    const resolver = new GraphQLResolver(faker.random.uuid(), randomGraphQLResolver());
+    const resolver = new GraphQLResolver(faker.datatype.uuid(), randomGraphQLResolver());
     expect(resolver).toBeInstanceOf(GraphQLResolver);
   });
   it('should construct', async () => {
-    const resolver = new GraphQLResolver(faker.random.uuid(), {
+    const resolver = new GraphQLResolver(faker.datatype.uuid(), {
       ...randomGraphQLResolver(),
       typeDefs: [
         `type HelloOne {

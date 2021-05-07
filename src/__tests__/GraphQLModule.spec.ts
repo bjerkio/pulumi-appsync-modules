@@ -8,13 +8,13 @@ process.env.PULUMI_TEST_MODE = 'true';
 
 describe('GraphQLModule', () => {
   it('should construct', async () => {
-    const module = new GraphQLModule(faker.random.uuid(), {});
+    const module = new GraphQLModule(faker.datatype.uuid(), {});
     expect(module).toBeInstanceOf(GraphQLModule);
   });
   it('should export resolvers', async () => {
-    const resolver = new GraphQLResolver(faker.random.uuid(), randomGraphQLResolver());
+    const resolver = new GraphQLResolver(faker.datatype.uuid(), randomGraphQLResolver());
 
-    const module = new GraphQLModule(faker.random.uuid(), {
+    const module = new GraphQLModule(faker.datatype.uuid(), {
       ...randomGraphQLModule(),
       resolvers: resolver,
     });
@@ -23,9 +23,9 @@ describe('GraphQLModule', () => {
   });
 
   it('should combine schema', async () => {
-    const resolver = new GraphQLResolver(faker.random.uuid(), randomGraphQLResolver());
+    const resolver = new GraphQLResolver(faker.datatype.uuid(), randomGraphQLResolver());
 
-    const module = new GraphQLModule(faker.random.uuid(), {
+    const module = new GraphQLModule(faker.datatype.uuid(), {
       ...randomGraphQLModule(),
       resolvers: resolver,
       typeDefs: [
@@ -45,7 +45,7 @@ describe('GraphQLModule', () => {
     expect(module.resolvers.length).toBeTruthy();
   });
   it('should generate schema', () => {
-    const resolver = new GraphQLResolver(faker.random.uuid(), {
+    const resolver = new GraphQLResolver(faker.datatype.uuid(), {
       ...randomGraphQLResolver(),
       typeDefs: `
         type HelloTwo {
@@ -59,7 +59,7 @@ describe('GraphQLModule', () => {
         }
       `
     });
-    const module = new GraphQLModule(faker.random.uuid(), {
+    const module = new GraphQLModule(faker.datatype.uuid(), {
       ...randomGraphQLModule(),
       typeDefs: `
         type HelloOne {
@@ -83,19 +83,19 @@ describe('GraphQLModule', () => {
     expect(module.typeDefs).toMatch(/schema/);
   })
   it('should return datasources with array', async () => {
-    const datasource = new GraphQLDataSource(faker.random.uuid(), {
+    const datasource = new GraphQLDataSource(faker.datatype.uuid(), {
       type: 'NONE'
     })
-    const module = new GraphQLModule(faker.random.uuid(), {
+    const module = new GraphQLModule(faker.datatype.uuid(), {
       datasources: [datasource],
     });
     expect(module).toBeInstanceOf(GraphQLModule);
   });
   it('should return datasources', async () => {
-    const datasource = new GraphQLDataSource(faker.random.uuid(), {
+    const datasource = new GraphQLDataSource(faker.datatype.uuid(), {
       type: 'NONE',
     });
-    const module = new GraphQLModule(faker.random.uuid(), {
+    const module = new GraphQLModule(faker.datatype.uuid(), {
       datasources: datasource,
     });
     expect(module).toBeInstanceOf(GraphQLModule);

@@ -5,7 +5,7 @@ import randomGraphQLApi from '../__fixtures__/randomGraphQLApi';
 
 describe('GraphQLApi', () => {
   it('should construct', () => {
-    const api = new GraphQLApi(faker.random.uuid(), {...randomGraphQLApi(), datasources: undefined});
+    const api = new GraphQLApi(faker.datatype.uuid(), {...randomGraphQLApi(), datasources: undefined});
     expect(api).toBeInstanceOf(GraphQLApi);
   });
   it('should construct with one dependsOn', () => {
@@ -13,7 +13,7 @@ describe('GraphQLApi', () => {
       ami: '',
       instanceType: 'm5.4xlarge',
     });
-    const api = new GraphQLApi(faker.random.uuid(), {
+    const api = new GraphQLApi(faker.datatype.uuid(), {
       ...randomGraphQLApi(),
       datasources: undefined,
     }, {
@@ -30,7 +30,7 @@ describe('GraphQLApi', () => {
       ami: '',
       instanceType: 'm5.4xlarge',
     });
-    const api = new GraphQLApi(faker.random.uuid(), {
+    const api = new GraphQLApi(faker.datatype.uuid(), {
       ...randomGraphQLApi(),
       datasources: undefined,
     }, {
@@ -39,7 +39,7 @@ describe('GraphQLApi', () => {
     expect(api).toBeInstanceOf(GraphQLApi);
   });
   it('should construct with schema', () => {
-    const api = new GraphQLApi(faker.random.uuid(), {
+    const api = new GraphQLApi(faker.datatype.uuid(), {
       ...randomGraphQLApi(),
       datasources: undefined,
       schema: `
@@ -52,7 +52,7 @@ describe('GraphQLApi', () => {
   });
   it('should output api, resolvers and datasources properties', () => {
     const fakeItem = randomGraphQLApi();
-    const api = new GraphQLApi(faker.random.uuid(), fakeItem);
+    const api = new GraphQLApi(faker.datatype.uuid(), fakeItem);
     expect(api).toHaveProperty('api');
     expect(api).toHaveProperty('resolvers');
     expect(api).toHaveProperty('datasources');
