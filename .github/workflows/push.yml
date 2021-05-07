@@ -15,10 +15,10 @@ jobs:
 
     steps:
     - uses: GoogleCloudPlatform/release-please-action@v2
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: node
+      id: release
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        release-type: node
     - uses: actions/checkout@v2
       if: ${{ steps.release.outputs.release_created }}
     - name: Use Node.js ${{ matrix.node-version }}
