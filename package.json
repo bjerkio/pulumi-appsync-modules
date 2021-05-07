@@ -17,8 +17,8 @@
     "type": "git",
     "url": "https://github.com/Bjerkio/pulumi-appsync-modules.git"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Bjerk AS",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Bjerkio/pulumi-appsync-modules/issues"
   },
