@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -14,40 +13,46 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: GoogleCloudPlatform/release-please-action@v2
-      id: release
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        release-type: node
-    - uses: actions/checkout@v2
-      if: ${{ steps.release.outputs.release_created }}
-    - name: Use Node.js ${{ matrix.node-version }}
-      if: ${{ steps.release.outputs.release_created }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Get yarn cache directory path
-      if: ${{ steps.release.outputs.release_created }}
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
 
-    - uses: actions/cache@v2
-      if: ${{ steps.release.outputs.release_created }}
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-    - run: yarn install
-      if: ${{ steps.release.outputs.release_created }}
-    - run: yarn run build
-      if: ${{ steps.release.outputs.release_created }}
-    - run: yarn test
-      if: ${{ steps.release.outputs.release_created }}
-      env:
-        CI: true
-    - uses: codecov/codecov-action@v1
-      if: ${{ steps.release.outputs.release_created }}
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Get yarn cache directory path
+        if: ${{ steps.release.outputs.release_created }}
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        if: ${{ steps.release.outputs.release_created }}
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install
+        if: ${{ steps.release.outputs.release_created }}
+      - run: yarn run build
+        if: ${{ steps.release.outputs.release_created }}
+      - run: yarn test
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          CI: true
+      - run: yarn publish
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: codecov/codecov-action@v1
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
