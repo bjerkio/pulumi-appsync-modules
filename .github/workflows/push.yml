@@ -52,7 +52,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2.0.1
         if: ${{ steps.release.outputs.release_created }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
