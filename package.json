@@ -2,6 +2,13 @@
   "name": "pulumi-appsync-modules",
   "version": "2.1.0",
   "description": "AWS AppSync module for Pulumi /with Modules",
+  "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme",
+  "bugs": {
+    "url": "https://github.com/Bjerkio/pulumi-appsync-modules/issues"
+  },
+  "repository": "github:bjerkio/pulumi-appsync-modules",
+  "license": "Apache-2.0",
+  "author": "Bjerk AS",
   "main": "build/index.js",
   "files": [
     "build/**/*"
@@ -10,33 +17,6 @@
     "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test-ws PULUMI_NODEJS_PROJECT=dev jest --coverage src",
     "build": "tsc",
     "generate:docs": "typedoc --out docs src"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Bjerkio/pulumi-appsync-modules.git"
-  },
-  "author": "Bjerk AS",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Bjerkio/pulumi-appsync-modules/issues"
-  },
-  "homepage": "https://github.com/Bjerkio/pulumi-appsync-modules#readme",
-  "devDependencies": {
-    "@types/faker": "^5.1.2",
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.14.44",
-    "faker": "^5.1.0",
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.1",
-    "typedoc": "^0.20.36",
-    "typedoc-plugin-markdown": "^3.0.8",
-    "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "@graphql-tools/merge": "^6.2.13",
-    "@pulumi/aws": "^4.2.0",
-    "@pulumi/pulumi": "^3.2.1",
-    "graphql": "^15.0.0"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
@@ -56,5 +36,22 @@
       "/__fixtures__/",
       "<rootDir>/build"
     ]
+  },
+  "dependencies": {
+    "@graphql-tools/merge": "^6.2.13",
+    "@pulumi/aws": "^4.2.0",
+    "@pulumi/pulumi": "^3.2.1",
+    "graphql": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/faker": "^5.1.2",
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.14.44",
+    "faker": "^5.1.0",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.1",
+    "typedoc": "^0.20.36",
+    "typedoc-plugin-markdown": "^3.0.8",
+    "typescript": "^4.0.3"
   }
 }
