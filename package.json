@@ -46,7 +46,7 @@
   "devDependencies": {
     "@types/faker": "^5.1.2",
     "@types/jest": "^26.0.3",
-    "@types/node": "^14.14.44",
+    "@types/node": "^18.11.14",
     "faker": "^5.1.0",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.1",
