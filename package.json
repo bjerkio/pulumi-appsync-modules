@@ -41,7 +41,7 @@
     "@graphql-tools/merge": "^6.2.13",
     "@pulumi/aws": "^4.2.0",
     "@pulumi/pulumi": "^3.2.1",
-    "graphql": "^15.0.0"
+    "graphql": "^16.0.0"
   },
   "devDependencies": {
     "@types/faker": "^5.1.2",
